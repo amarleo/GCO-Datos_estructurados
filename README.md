@@ -68,39 +68,211 @@
 
 ![imagen-login](images/Login.png)
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Debido a que se trata de la página de Login de usuarios, la única clase que se ha definido en este caso es para Hotel: 
+
+```html
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Hotel",
+        "name": "Hard Rock Hotel Tenerife",
+        "description": "Hard Rock Hotel Tenerife es un hotel completamente renovado, situado en la isla volcánica de Tenerife (en la costa noroeste de África en el océano Atlántico), uno de los destinos más fascinantes del mundo donde Hard Rock Hotel Tenerife ha encontrado su nuevo hogar en las soleadas costas del sur de Adeje y estamos listos para revolucionar tus vacaciones cuando nos elijas para tu próxima escapada a las Islas Canarias",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "SPAIN",
+            "addressLocality": "Santa Cruz de Tenerife",
+            "addressRegion": "Islas Canarias",
+            "postalCode": "38670",
+            "streetAddress": "Avenida Adeje 300, Avenida Playa Paraíso"
+        },
+        "telephone": "922055022",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-s/0e/25/2a/06/exterior.jpg",
+        "starRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+        },
+        "priceRange": "100€ - 900€"
+    }
+</script>  
+```
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Donde se ha definido la Clase Hotel y algunas de las etiquetas más importantes para la misma. En este caso, tras ser comprobado por la [Prueba de Resultados Enriquecidos](https://search.google.com/test/rich-results) se puede comprobar lo siguiente: 
+
+![img](images/img1.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tal y como se puede observar, se ha creado una **rich card** con la descripción que se dió sobre el hotel previamente.
+
 ***
 ### Sign in
 ***
+
+![signin](images/signin.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para el caso de la página de registro de usuario se ha llevado a cabo un esquema de la misma estructura que el login, donde además se ha detallado la acción de registro con el Tipo RegisterAction de la siguiente forma: 
+
+```html
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RegisterAction",
+      "agent": {
+        "@type": "Person",
+        "name": "usuario1"
+      },
+      "object": {
+        "@type": "Product",
+        "name": "Hard Rock RRR"
+      }
+    }
+</script>
+```
+
 
 ***
 ### Home
 ***
 
+![home](images/home-page.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para el caso de la pantalla Home, aparecen más elementos que pueden ser representados mediante el Schema. En primer lugar se encuentra, tal y como se hizo anteriormente para el login, establecer la clase Hotel. Por otro lado, en esta página se hace mención del proyecto, así como de una breve descripción del mismo. Es por ello, por lo que se va a crear un esquema JSON-LD de tipo Project: http
+
+```html
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Project",
+        "name": "Hard Rock RRR",
+        "description": "Proyecto sobre la economía circular en el Hard Rock Tenerife",
+        "funder": "Hard Rock Hotel Tenerife", 
+        "employee": {
+            "@type": "Person",
+            "name": "Alejandro Martín de León",
+            "email": "alu0101015941@ull.edu.es",
+            "jobTitle": "Developer",
+            "nacionality": "Spain"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "SPAIN",
+            "addressLocality": "Santa Cruz de Tenerife",
+            "addressRegion": "Islas Canarias",
+            "postalCode": "38670",
+            "streetAddress": "Avenida Adeje 300, Avenida Playa Paraíso"
+        }
+    }   
+</script>
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A diferencia del esquema creado con la clase Hotel, esta clase Project, al ser pasado por la prueba de resultados enriquecidos, no lo detecta. Esto sucede principalmente porque, tal y como aparece al inicio de su [recurso online](https://schema.org/Project), se presenta como que se encuentra en estado pendiente de aceptación por parte de la web.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para la clase Map pasa algo parecido y es que no se toma en cuanta como resultado enriquecido. Por lo que parece, según se detalla en la web [Prueba de resultados enriquecidos](https://support.google.com/webmasters/answer/7445569#zippy=%2Csupported-types) no todos los resultados definidos por el Schema.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En adición se ha creado el esquema SoftwareApplication, que permitirá definir una serie de características informativas sobre la aplicación creada.
+
 ***
 ### Menú desplegable
 ***
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para el menú desplegable del Navbar no se precisa realmente un esquema distinto de los ya creados en otras páginas.
+
+![overlay](images/overlay-user.png)
 
 ***
 ### Perfil de usuario
 ***
 
+![perfil usuario](images/user-profile.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para la página de perfil de usuario no se precisan en principio ningún tipo de esquema en principio. En versiones futuras del prototipo se espera tener un sistema de seguidores dentro de la aplicación, donde usuarios se podrán comparar entre ellos mediante estadísticas. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para ello se puede definir la acción BeFriendAction, donde se podrá detallar la acción de un usuario que es amigo de otro: 
+
+```
+<script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BefriendAction",
+  "agent": {
+    "@type": "Person",
+    "name": "usuario1"
+  },
+  "object": {
+    "@type": "Person",
+    "name": "usuario2"
+  }
+}
+    </script>
+```
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En el código mostrado con anterioridad se puede observar cómo se han definido dos usuarios con la acción de seguir.
+
 ***
 ### Página de reciclado
 ***
+
+![imagen reciclado](images/Recycle.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En esta pantalla se detalla a acción del proceso de reciclar. Para ello, se ha de emplear el uso del escaneo tanto de código QR como de código de barras. En este caso se ha aplicado la clase Barcode para establecer el día que se ha subido y el usuario que lo ha hecho: 
+
+```
+<script type="application/ld+json">
+
+        {
+          "@context": "https://schema.org",
+          "@type": "Barcode",
+          "name": "barcode"
+          "uploadDate": {
+            "@type": "Date",
+            "dateCreated": "10/10/2010"
+          },
+          "creator": {
+            "@type": "Person",
+            "name": "usuario1"
+          }
+        }
+        </script>
+```
+Lo mismo sería para el QR. 
+
 
 ***
 ### Página de actividades
 ***
 
+![Activities](images/eco-activities.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sobre esta página se encuentran una serie de eventos o actividades que se van a celebrar en los próximos días, a los que los huéspedes van a poder participar. En este caso, se plantea el esquema JSON-LD como eventos. Se podrá añadir sobre este esquema además la imagen que le corresponde a cada evento.
+
+```html
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Article",
+      "name": "Eco Trail",
+      "description": "Se trata de una aventura por uno de los senderos más conocidos de la Isla de Tenerife...",
+      "about": {
+        "@type": "Event",
+        "name": "Eco Trail"
+      },
+
+    }
+    </script>
+```
+
 ***
 #### Actividad Trail
 ***
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En este caso, el esquema será similar, solo que se podrá añadir los créditos de recompoensa por la actividad.
 
 
 ***
 ### Tienda de intercambios
 ***
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Por último, para el caso de la tienda, se han de añadir los productos que se encuentran sobre la pantalla. Para ello se ha de utilizar la clase Product.
+
+
 
 
 [Volver a inicio](#datos-estructurados-en-la-web)
