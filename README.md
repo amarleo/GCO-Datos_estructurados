@@ -5,7 +5,7 @@
 
 ## Índice
 
-1. [Introducción](#actividad-trail)
+1. [Introducción](#introduccion)
 
 
 
