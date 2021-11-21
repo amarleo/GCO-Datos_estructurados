@@ -250,10 +250,14 @@ Lo mismo sería para el QR.
       "@type": "Article",
       "name": "Eco Trail",
       "description": "Se trata de una aventura por uno de los senderos más conocidos de la Isla de Tenerife...",
+
       "about": {
         "@type": "Event",
-        "name": "Eco Trail"
-      },
+        "name": "Eco Trail",
+        "location": "Pico del Teide",
+      "startDate": "2020-07-10 15:00:00.000"
+      }
+      
 
     }
     </script>
@@ -270,9 +274,45 @@ Lo mismo sería para el QR.
 ### Tienda de intercambios
 ***
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Por último, para el caso de la tienda, se han de añadir los productos que se encuentran sobre la pantalla. Para ello se ha de utilizar la clase Product.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Por último, para el caso de la tienda, se han de añadir los productos que se encuentran sobre la pantalla. Para ello se ha de utilizar la clase Product. Aunque no se ha detallado en el prototipado, sería una buena idea incluir una pantalla adicional donde se pueda ver información más precisa del producto, o incluso algunos comentarios. Esto podría ser de la siguiente manera: 
 
+```html
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "3.5",
+        "reviewCount": "11"
+      },
+      "description": "Camiseta 50th",
+      "name": "Camiseta 50th",
+      "image": "camiseta.jpg",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "price": "1000",
+        "priceCurrency": "credits"
+      },
+      "review":
+        {
+          "@type": "Review",
+          "author": "usuario1",
+          "datePublished": "2011-04-01",
+          "reviewBody": "La camisa esta bien",
+          "reviewRating": {
+            "@type": "Rating",
+            "bestRating": "5",
+            "ratingValue": "4",
+            "worstRating": "4"
+          }
+        }
+    }
+    </script>  
+```
+De esto se obtiene la siguiente vista previa: 
 
-
+![img2](images/img2.png)
 
 [Volver a inicio](#datos-estructurados-en-la-web)

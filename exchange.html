@@ -2,6 +2,41 @@
 <html>
 <body>
 <img src="images/exchange.png" alt="exchange page">
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "3.5",
+        "reviewCount": "11"
+      },
+      "description": "Camiseta 50th",
+      "name": "Camiseta 50th",
+      "image": "camiseta.jpg",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "price": "1000",
+        "priceCurrency": "credits"
+      },
+      "review":
+        {
+          "@type": "Review",
+          "author": "Ellie",
+          "datePublished": "2011-04-01",
+          "reviewBody": "La camisa esta bien",
+          "reviewRating": {
+            "@type": "Rating",
+            "bestRating": "5",
+            "ratingValue": "4",
+            "worstRating": "4"
+          }
+        }
+    }
+    </script>  
+
 <a href="overlay-user.html">Navbar Overlay</a>    
 </body>
 </html>
